@@ -17,9 +17,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from pedidos_app.views import crear_cliente
+from pedidos_app.views import crear_cliente, listar_clientes, listar_cliente, borrar_cliente, modificar_cliente
 
 urlpatterns = [
+    #cliente
     path('admin/', admin.site.urls),
-    path('cliente/agregar', crear_cliente)
+    path('cliente/agregar', crear_cliente),
+    path('clientes', listar_clientes),
+    path('cliente/<int:id>', listar_cliente),
+    path('cliente/eliminar/<int:id>', borrar_cliente),
+    path('cliente/modificar/<int:id>', modificar_cliente),
+
+    #items
+    path('item/agregar', crear_item),
+    path('item', listar_items),
+    path('item/<int:id>', listar_item),
+    path('item/eliminar/<int:id>', eliminar_item),
+    path('item/modificar/<int:id>', modificar_item),
 ]
